@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.container{
+    display: flex;
+   
+    background-color: #000;
+    border: 5px solid #000;
+    
+}
+
+.gridbox{
+  
+    background-color: #fff;
+}
+
+.cells{
+ 
+    background-color: #fff;
+    height: 16px; 
+}
+
+
+.col {
+    background-color: #fff;
+    width: 16px; 
+   
+}
+
+button{
+    display: flex;
+    align-items: center;
+    margin: 10px auto 10px auto;
+    padding: 7.5px;
+    background-color: #2fa52f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    width: 75px;
+    height: 40px;
+}
