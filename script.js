@@ -16,9 +16,14 @@ function gridColumns(initialGrid, Num){
     for(let i=0; i<Num; i++){
         const column = document.createElement("div")
         column.className = "line"
-        column.style.flex = "1 1 auto"
-        column.style.height = "${Num}px" 
-    initialGrid.appendChild(column)  
+        // column.style.flex = "1 1 auto"
+        // column.style.flexDirection = "column"
+
+        column.style.width = `${256/Num}px` 
+        // gig
+        gridCells(column, Num);
+        initialGrid.appendChild(column) 
+        
     }
     
 }
@@ -29,8 +34,8 @@ function gridCells(column, Num){
         const cell = document.createElement("div")
         cell.className = "square"
         //cell.style.flex = "1 1 auto"
-        cell.style.width = "${Num}px"
-        cell.innerText = "."
+        cell.style.height = `${256/Num}px`
+        //cell.innerText = "."
         column.appendChild(cell)  
     }
 }
@@ -54,12 +59,14 @@ const div = document.querySelector(".container")
 //the const above led to the event.target being applied on the whole container and inherited by cells think parentNode and child
 div.addEventListener("mouseover", (event) => {
     const mouseEnter = event.target
-    mouseEnter.style.backgroundColor = getColor() 
+    mouseEnter.style.backgroundColor = getColor()
+    
 })
 
 div.addEventListener("mouseout", (event) => {
     const mouseEnter = event.target
-    mouseEnter.style.backgroundColor = ""
+    mouseEnter.style.backgroundColor = getColor()
+    
 })
 
 const newGridButton = document.querySelector("button")
