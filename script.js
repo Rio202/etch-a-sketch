@@ -1,8 +1,42 @@
+let Num = 16
 
-const gridBox = document.querySelector(".container")
-const Num = 16
 
-let size = 16
+
+const makeGrid = (Num) => {
+    const initialGrid = document.querySelector(".container")
+    initialGrid.style.display = "flex"
+    initialGrid.style.flexFlow = "row wrap"
+    initialGrid.style.height = "256px"
+    initialGrid.style.width = "256px"
+    gridColumns(initialGrid, Num)
+}
+
+function gridColumns(initialGrid, Num){
+    //const initialGrid = document.querySelector(".container")
+    for(let i=0; i<Num; i++){
+        const column = document.createElement("div")
+        column.className = "line"
+        column.style.flex = "1 1 auto"
+        column.style.height = "${Num}px" 
+    initialGrid.appendChild(column)  
+    }
+    
+}
+
+function gridCells(column, Num){
+    //const getColumns = document.querySelector(".line")
+    for(let i=0; i<Num; i++){
+        const cell = document.createElement("div")
+        cell.className = "square"
+        //cell.style.flex = "1 1 auto"
+        cell.style.width = "${Num}px"
+        cell.innerText = "."
+        column.appendChild(cell)  
+    }
+}
+
+
+makeGrid(Num)
 
 // code to get random color using rgb
 const getColor = () => {
@@ -12,27 +46,6 @@ const getColor = () => {
 
     return `rgb(${r}, ${g}, ${b})`
 }
-
-function createColumns(Num){
-    for(let i=0; i<Num; i++){
-        const column = document.createElement("div")
-        column.className ="col"
-        column.style.height = Num
-        createCells(Num, column)
-        gridBox.appendChild(column)   
-     }   
-}
-
-function createCells(Num, column){
-    for(let i=0;i<Num; i++){
-        const cell = document.createElement("div")
-        cell.className = "cells"
-        cell.style.width = Num
-        column.appendChild(cell)
-    }  
-}
-
-createColumns(Num)
 
 //used container so that the event occurs on the whole grid instead of each cell.
 const div = document.querySelector(".container")
@@ -56,7 +69,7 @@ newGridButton.addEventListener("click", () => {
     grid.innerHTML = ""
     const newNum = prompt ("Enter grid size:")
     let max = 100
-    createColumns(newNum, max)
+    makeGrid(newNum)
     console.log(newNum)
 })
 

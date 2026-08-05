@@ -13,7 +13,6 @@ body{
 
 .container{
     display: flex;
-   
     background-color: #000;
     border: 5px solid #000;
     
@@ -24,7 +23,7 @@ body{
     background-color: #fff;
 }
 
-.cells{
+/* .cells{
  
     background-color: #fff;
     height: 16px; 
@@ -35,7 +34,7 @@ body{
     background-color: #fff;
     width: 16px; 
    
-}
+} */
 
 button{
     display: flex;
